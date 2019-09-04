@@ -7,6 +7,8 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using mysqlefcore;
+using PikyServer.Models;
 
 namespace PikyServer
 {
@@ -15,8 +17,19 @@ namespace PikyServer
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();
+            Context();
         }
+        private static void Context() {
+            using(var context = new PikyContext())
+            {
+                // Creates the database if not exists
+                context.Database.EnsureCreated();
 
+                // Saves changes
+                context.SaveChanges();
+            }
+            
+        }
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
