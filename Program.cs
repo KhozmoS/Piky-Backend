@@ -17,17 +17,17 @@ namespace PikyServer
         public static void Main(string[] args)
         {
             CreateWebHostBuilder(args).Build().Run();
-            Context();
+            // Context();
         }
         private static void Context() {
-            using(var context = new PikyContext())
+            /* using(var context = new PikyContext())
             {
                 // Creates the database if not exists
                 context.Database.EnsureCreated();
 
                 // Saves changes
                 context.SaveChanges();
-            }
+            } */
             
         }
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

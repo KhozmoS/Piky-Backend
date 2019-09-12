@@ -5,6 +5,7 @@ namespace PikyServer.Models {
     public class Novela {
         [Key]
         public int Novela_Id { get; set; }
+        [Required]
         public string Novela_Nombre { get; set; }
         public string Novela_Genero { get; set; }
         public string Novela_Sipopsis { get; set; }

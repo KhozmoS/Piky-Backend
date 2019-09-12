@@ -1,4 +1,6 @@
+using System;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using mysqlefcore;
 using PikyServer.Models;
@@ -8,12 +10,14 @@ namespace PikyServer.Controllers {
     public class NovelasController : Controller {
         private PikyContext _context;
         public NovelasController() {
-            this._context = new PikyContext();
+            _context = PikyContext.PikyContextFactory.Create();
         }
 
         // api/novelas GET
         [HttpGet]
         public ActionResult Get() {
+            // int[] a = new int [2];
+            // a[-1] = 1;
             return Ok(this._context.Novela.ToArray());
         }
         
@@ -28,7 +32,7 @@ namespace PikyServer.Controllers {
         }
 
         // api/novelas POST
-        [HttpPost]
+        [HttpPost, Authorize(Roles = "Admin")]
         public ActionResult Post( [FromBody]Novela novela ) {
             if( ModelState.IsValid ) {
                this._context.Novela.Add(novela);
@@ -39,7 +43,7 @@ namespace PikyServer.Controllers {
         }
 
         // api/novelas/id PUT
-        [HttpPut("{id}")]
+        [HttpPut("{id}"), Authorize(Roles = "Admin")]
         public ActionResult Put( int id , [FromBody]Novela novela ) {
            var target = this._context.Novela.FirstOrDefault( p => p.Novela_Id == id );
            if( target==null ) {
@@ -54,7 +58,7 @@ namespace PikyServer.Controllers {
         }
 
         // api/novelas/id DELETE
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}"), Authorize(Roles = "Admin")]
         public ActionResult Delete( int id ) {
             var target = this._context.Novela.FirstOrDefault( p => p.Novela_Id == id );
             if( target != null ) {

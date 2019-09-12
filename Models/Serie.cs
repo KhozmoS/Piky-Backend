@@ -5,6 +5,7 @@ namespace PikyServer.Models {
     public class Serie {
         [Key]
         public int Serie_Id { get; set; }
+        [Required]
         public string Serie_Nombre { get; set; }
         public string Serie_Genero { get; set; }
         public string Serie_Sipopsis { get; set; }

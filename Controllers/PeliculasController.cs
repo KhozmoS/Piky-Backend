@@ -9,7 +9,7 @@ namespace PikyServer.Controllers {
 
         private PikyContext _context;
         public PeliculasController() {
-            this._context = new PikyContext();
+            this._context = PikyContext.PikyContextFactory.Create();
         }
 
         // api/peliculas GET

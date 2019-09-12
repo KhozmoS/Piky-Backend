@@ -5,6 +5,7 @@ namespace PikyServer.Models {
     public class Reality  {
         [Key]
         public int Reality_Id { get; set; }
+        [Required]
         public string Reality_Nombre { get; set; }
         public string Reality_Genero { get; set; }
         public string Reality_Sipopsis { get; set; }
