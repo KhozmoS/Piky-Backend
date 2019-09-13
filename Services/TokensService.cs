@@ -53,16 +53,19 @@ namespace PikyServer.Services
                 return Convert.ToBase64String(randomNumber);
             }
         }
-
+        /*
         public ClaimsPrincipal GetPrincipalFromExpiredToken(string token)
         {
             var tokenValidationParameters = new TokenValidationParameters
             {
-                ValidateAudience = false, //you might want to validate the audience and issuer depending on your use case
-                ValidateIssuer = false,
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateLifetime = true,
                 ValidateIssuerSigningKey = true,
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["SecurityKeyJwt"])),
-                ValidateLifetime = false //here we are saying that we don't care about the token's expiration date
+
+                ValidIssuer = "https://localhost:44375",
+                ValidAudience = "https://localhost:44375",
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["SecurityKeyJwt"]))
             };
 
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -74,6 +77,6 @@ namespace PikyServer.Services
 
             return principal;
         }
-
+        */
     }
 }

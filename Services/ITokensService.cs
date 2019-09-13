@@ -8,6 +8,6 @@ namespace PikyServer.Services
     {
         string CreateAccessToken( User CorrectUser );
         string CreateRefreshToken();
-        ClaimsPrincipal GetPrincipalFromExpiredToken(string token);
+       // ClaimsPrincipal GetPrincipalFromExpiredToken(string token);
     }
 }
