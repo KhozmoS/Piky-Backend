@@ -12,5 +12,6 @@ namespace PikyServer.Models {
         public int Serie_Publicacion { get; set; }
         public string Serie_Pais { get; set; }     
         public int Serie_CantidadCapitulos { get; set; }
+        public string Serie_Imagen { get; set; }
     }
 }

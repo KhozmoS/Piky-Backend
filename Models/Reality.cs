@@ -12,6 +12,6 @@ namespace PikyServer.Models {
         public int Reality_Publicacion { get; set; }
         public string Reality_Pais { get; set; }     
         public int Reality_CantidadCapitulos { get; set; }
-        
+        public string Reality_Imagen { get; set; }
     }
 }

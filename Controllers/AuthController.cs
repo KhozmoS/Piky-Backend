@@ -47,6 +47,7 @@ namespace PikyServer.Controllers
             {
                 return BadRequest("El nombre de usuario ya existe!");
             }
+            user.User_Role = "User";
             // Hashing the password and creating the tokens
             user.User_Password = _passowrdHasher.GenerateIdentityV3Hash( user.User_Password );
             string tokenAccess = _tokensService.CreateAccessToken( user );

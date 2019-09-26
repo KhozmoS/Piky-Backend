@@ -35,7 +35,7 @@ namespace PikyServer.MiddleWares
         }
 
         private Task HandleExceptionAsync( HttpContext context , Exception ex )
-        {
+        {            
             context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
             context.Response.ContentType = "application/json";
 

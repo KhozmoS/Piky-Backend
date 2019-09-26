@@ -11,5 +11,6 @@ namespace PikyServer.Models {
         public string Pelicula_Sipopsis { get; set; }
         public int Pelicula_Publicacion { get; set; }
         public string Pelicula_Pais { get; set; }             
+        public string Pelicula_Imagen { get; set; }             
     }
 }
