@@ -115,13 +115,13 @@ namespace PikyServer.Controllers
 
         // POST api/auth/refresh
         [HttpPost("refresh")]       
-        public IActionResult RefreshToken( [FromBody]string refreshToken )
+        public IActionResult RefreshToken( [FromBody]string refresh_Token)
         {
             // var principal = _tokensService.GetPrincipalFromExpiredToken(authenticationToken);
             
-            var userSession = _context.UserRefreshToken.SingleOrDefault(u => u.RefreshToken == refreshToken );
+            var userSession = _context.UserRefreshToken.SingleOrDefault(u => u.RefreshToken == refresh_Token);
             
-            if (userSession == null || userSession.RefreshToken != refreshToken) return BadRequest();
+            if (userSession == null || userSession.RefreshToken != refresh_Token) return BadRequest();
 
             var user = _context.User.FirstOrDefault( u => u.User_Name == userSession.UserName );
 

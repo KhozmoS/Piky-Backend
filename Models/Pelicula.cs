@@ -8,7 +8,7 @@ namespace PikyServer.Models {
         [Required]
         public string Pelicula_Nombre { get; set; }
         public string Pelicula_Genero { get; set; }
-        public string Pelicula_Sipopsis { get; set; }
+        public string Pelicula_Sinopsis { get; set; }
         public int Pelicula_Publicacion { get; set; }
         public string Pelicula_Pais { get; set; }             
         public string Pelicula_Imagen { get; set; }             

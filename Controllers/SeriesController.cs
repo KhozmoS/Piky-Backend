@@ -1,4 +1,5 @@
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using mysqlefcore;
 using PikyServer.Models;
@@ -29,7 +30,7 @@ namespace PikyServer.Controllers {
         }
 
         // api/series POST
-        [HttpPost]
+        [HttpPost, Authorize(Roles = "Admin")]
         public ActionResult Post( [FromBody]Serie serie ) {
             if( ModelState.IsValid ) {                
                this._context.Serie.Add(serie);
@@ -41,7 +42,7 @@ namespace PikyServer.Controllers {
         }
 
         // api/series/id PUT
-        [HttpPut("{id}")]
+        [HttpPut("{id}"), Authorize(Roles = "Admin")]
         public ActionResult Put( int id , [FromBody]Serie serie ) {
            var target = this._context.Serie.FirstOrDefault( p => p.Serie_Id == id );
            if( target==null ) {
@@ -56,7 +57,7 @@ namespace PikyServer.Controllers {
         }
 
         // api/series/id DELETE
-        [HttpDelete("{id}")]
+        [HttpDelete("{id}"), Authorize(Roles = "Admin")]
         public ActionResult Delete( int id ) {
             var target = this._context.Serie.FirstOrDefault( p => p.Serie_Id == id );
             if( target != null ) {

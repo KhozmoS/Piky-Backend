@@ -32,8 +32,8 @@ namespace PikyServer.Controllers {
         }
 
         // api/novelas POST
-        // [HttpPost, Authorize(Roles = "Admin")]
-        [HttpPost]
+         [HttpPost, Authorize(Roles = "Admin")]
+        
         public ActionResult Post( [FromBody]Novela novela ) {
             if( ModelState.IsValid ) {
                this._context.Novela.Add(novela);

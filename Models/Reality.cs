@@ -8,7 +8,7 @@ namespace PikyServer.Models {
         [Required]
         public string Reality_Nombre { get; set; }
         public string Reality_Genero { get; set; }
-        public string Reality_Sipopsis { get; set; }
+        public string Reality_Sinopsis { get; set; }
         public int Reality_Publicacion { get; set; }
         public string Reality_Pais { get; set; }     
         public int Reality_CantidadCapitulos { get; set; }

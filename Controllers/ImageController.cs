@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Http;
 using PikyServer.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PikyServer.Controllers
 {
@@ -16,7 +17,7 @@ namespace PikyServer.Controllers
     public class ImageController : Controller
     {
 
-        [HttpPost]      
+        [HttpPost, Authorize(Roles = "Admin")]      
         public ActionResult UploadImage( )
         {      
             
@@ -36,7 +37,7 @@ namespace PikyServer.Controllers
 
             return Ok( new
             {
-                imageName = imageName
+                imageName
             });
            // return Request.CreateResponse(HttpStatusCode.Created, filePath);
         }
